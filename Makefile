@@ -20,13 +20,15 @@ init:
 # Define o comando test que roda os testes com pytest na pasta 'test'
 test:
 	@echo "Rodando testes..."
-	$(PYTEST) test
+	$(PYTEST) tests
 
 # Limpeza dos arquivos compilados e ambiente virtual
 clean:
 	@echo "Limpando arquivos compilados..."
 	find . -type f -name "*.pyc" -delete
 	find . -type d -name "__pycache__" -exec rm -r {} +
+	@echo "Limpando arquivos temporarios de teste"
+	rm -rf misc/
 	@echo "Removendo ambiente virtual..."
 	rm -rf $(VENV)
 	@echo "Limpeza completa."

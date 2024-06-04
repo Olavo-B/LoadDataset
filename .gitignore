@@ -63,3 +63,6 @@ instance/
 
 # Sphinx documentation
 docs/_build/
+
+# My stuff
+/misc/

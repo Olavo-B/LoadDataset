@@ -50,7 +50,7 @@ class TestLoadSusy(unittest.TestCase):
             data, target = LoadDataset.load_adult(load_path='./misc/data')
             self.assertIsNotNone(data)
             self.assertIsNotNone(target)
-    
+
 
 
 if __name__ == '__main__':

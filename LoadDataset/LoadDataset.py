@@ -234,12 +234,13 @@ def load_covtype(debug=False, save_path=None, load_path=None):
     covertype = fetch_ucirepo(id=31) 
 
     from sklearn.preprocessing import LabelEncoder
-    le = LabelEncoder()
-    covertype.data.targets = le.fit_transform(covertype.data.targets)
+
         
     # data (as pandas dataframes) 
     X = covertype.data.features 
     y = pd.Series(covertype.data.targets)
+    le = LabelEncoder()
+    y = le.fit_transform(y)
     y.name = 'target'
     
 
@@ -309,12 +310,12 @@ def load_adult(debug=False, save_path=None, load_path=None):
     adult = fetch_ucirepo(id=2) 
 
     from sklearn.preprocessing import LabelEncoder
-    le = LabelEncoder()
-    adult.data.targets = le.fit_transform(adult.data.targets)
         
     # data (as pandas dataframes) 
     X = adult.data.features 
     y = pd.Series(adult.data.targets)
+    le = LabelEncoder()
+    y = le.fit_transform(y)
     y.name = 'target'
 
 

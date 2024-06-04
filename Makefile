@@ -11,26 +11,28 @@ PYTEST = $(VENV)/bin/pytest
 
 # Define o comando init que cria o ambiente virtual e instala as dependências
 init:
-	@echo "Criando ambiente virtual..."
+	@echo "Create virtual environment..."
 	python3 -m venv $(VENV)
-	@echo "Instalando dependências..."
+	@echo "Installing requirements..."
 	$(PIP) install -r $(REQUIREMENTS)
-	@echo "Ambiente inicializado."
+	@echo "Virtual environment created and dependencies installed."
 
 # Define o comando test que roda os testes com pytest na pasta 'test'
 test:
-	@echo "Rodando testes..."
-	$(PYTEST) tests
+	@echo "Run tests..."
+	$(PYTEST) tests -s
 
 # Limpeza dos arquivos compilados e ambiente virtual
 clean:
-	@echo "Limpando arquivos compilados..."
+	@echo "Cleanning .pyc files..."
 	find . -type f -name "*.pyc" -delete
 	find . -type d -name "__pycache__" -exec rm -r {} +
-	@echo "Limpando arquivos temporarios de teste"
+	@echo "Cleanning temp folders..."
 	rm -rf misc/
-	@echo "Removendo ambiente virtual..."
+	@echo "Cleanning virtual environment..."
 	rm -rf $(VENV)
 	@echo "Limpeza completa."
+
+all: init test clean
 
 .PHONY: init test clean

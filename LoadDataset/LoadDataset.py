@@ -232,10 +232,16 @@ def load_covtype(debug=False, save_path=None, load_path=None):
     
     # fetch dataset 
     covertype = fetch_ucirepo(id=31) 
+
+    from sklearn.preprocessing import LabelEncoder
+    le = LabelEncoder()
+    covertype.data.targets = le.fit_transform(covertype.data.targets)
         
     # data (as pandas dataframes) 
     X = covertype.data.features 
-    y = covertype.data.targets
+    y = pd.Series(covertype.data.targets)
+    y.name = 'target'
+    
 
     if save_path:
         # Ensure the save path exists
@@ -277,6 +283,8 @@ def load_adult(debug=False, save_path=None, load_path=None):
     if load_path and os.path.exists(load_path):
         print(f"Loading dataset from {load_path}")
         df = pd.read_csv(os.path.join(load_path, 'adult.csv'))
+
+
  
 
         # Rename the first column to 'target' and separate it as a Series
@@ -299,10 +307,17 @@ def load_adult(debug=False, save_path=None, load_path=None):
     
     # fetch dataset 
     adult = fetch_ucirepo(id=2) 
+
+    from sklearn.preprocessing import LabelEncoder
+    le = LabelEncoder()
+    adult.data.targets = le.fit_transform(adult.data.targets)
         
     # data (as pandas dataframes) 
     X = adult.data.features 
-    y = adult.data.targets
+    y = pd.Series(adult.data.targets)
+    y.name = 'target'
+
+
 
     if save_path:
         # Ensure the save path exists

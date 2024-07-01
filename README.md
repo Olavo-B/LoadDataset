@@ -4,6 +4,7 @@ Biblioteca para importar datasets convencionais automaticamente
 
 ## Installation
 
+`!pip install git+https://github.com/Olavo-B/LoadDataset`
 
 
 ## Usage

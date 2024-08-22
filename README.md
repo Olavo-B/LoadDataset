@@ -2,6 +2,13 @@
 
 Biblioteca para importar datasets convencionais automaticamente
 
+Datasets presentes:
+
+- SUSY
+- HIGGS
+- Covertype
+- Adult
+
 ## Installation
 
 ```python
@@ -13,12 +20,11 @@ Biblioteca para importar datasets convencionais automaticamente
 
 ```python
 
-from LoadDataset import load_susy
+from LoadDataset.LoadDataset import load_susy
 
 data,target = load_susy(debug=True, save_path='data/susy.csv', load_path='data/susy.csv')
 
 ```
-
 
 ## Requirements
 

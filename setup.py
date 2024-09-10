@@ -18,7 +18,7 @@ if os.path.isfile(requirement_path):
 # Configurar a instalação do pacote
 setuptools.setup(
     name="LoadDataset",
-    version="0.1.0",
+    version="0.1.1",
     author="Olavo Barros",
     author_email="olavo.barros.silva@gmail.com",
     description="Biblioteca para importar datasets convencionais automaticamente",

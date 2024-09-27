@@ -77,6 +77,17 @@ class TestLoadSusy(unittest.TestCase):
                     self.assertIsNotNone(data)
                     self.assertIsNotNone(target)
 
+    def test_load_spambase(self):
+
+        # Test saving the dataset to a provided path
+        data, target = LoadDataset.load_spambase(debug=True, save_path='./misc/data')
+        self.assertIsNotNone(data)
+        self.assertIsNotNone(target)
+
+        # Test loading the dataset from a provided path
+        data, target = LoadDataset.load_spambase(load_path='./misc/data')
+        self.assertIsNotNone(data)
+        self.assertIsNotNone(target)
 
 
 if __name__ == '__main__':

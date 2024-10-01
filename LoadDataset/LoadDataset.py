@@ -312,6 +312,7 @@ def load_adult(debug=False, save_path=None, load_path=None):
     from sklearn.preprocessing import LabelEncoder
     le = LabelEncoder()
     adult.data.targets = le.fit_transform(adult.data.targets.values.ravel())
+    adult.data.features = le.fit_transform(adult.data.features.values.ravel())
 
         
     # data (as pandas dataframes) 

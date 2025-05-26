@@ -309,9 +309,17 @@ def load_adult(debug=False, save_path=None, load_path=None):
     # fetch dataset 
     adult = fetch_ucirepo(id=2) 
 
+    # 2025-05-26 18:03:08
+    # For this dataset, the target collumn needs to be worked on
+    # It contains some trailing dots in the target values
+    # i.e.: ['<=50K' '<=50K' '<=50K' ... '<=50K.' '<=50K.' '>50K.']
+    # We will remove the trailing dots and then encode the target values
+    adult.data.targets = adult.data.targets.values.ravel()
+    adult.data.targets = [str(target).replace('.', '') for target in adult.data.targets]
+
     from sklearn.preprocessing import LabelEncoder
     le = LabelEncoder()
-    adult.data.targets = le.fit_transform(adult.data.targets.values.ravel())
+    adult.data.targets = le.fit_transform(adult.data.targets)
     for col in adult.data.features.select_dtypes(include='object').columns:
         adult.data.features[col] = le.fit_transform(adult.data.features[col]) 
 

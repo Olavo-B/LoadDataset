@@ -13,6 +13,7 @@ The library currently supports the following popular machine learning datasets:
 - **Iris** - Classic flower species classification dataset
 - **KDD99** - Network intrusion detection dataset
 - **Spambase** - Email spam detection dataset
+- **DryBean** - Dry bean classification dataset
 
 > [!TIP]
 > All datasets are automatically downloaded on first use and cached locally for faster subsequent access.
@@ -158,6 +159,7 @@ scikit-learn>=1.0.0
 | Iris | ~5KB | 4 | 150 | Multi-class Classification | UCI ML Repo API |
 | KDD99 | ~75MB | 41 | 4.9M | Multi-class Classification | Direct Download |
 | Spambase | ~350KB | 57 | 4.6K | Binary Classification | UCI ML Repo API |
+| DryBean | ~2.4MB | 16 | 13K | Multi-class Classification | UCI ML Repo API |
 
 ## 🤝 Contributing
 
